@@ -1,14 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.ScanFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <LinearLayout
+            android:padding="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/arrowback_black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="12dp"
+                android:text="Created"
+                android:textColor="@color/purple_200"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="@color/purple_200"
+                android:textStyle="bold"
+                android:text="Serial number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/newbarcode"
+                android:layout_marginTop="5dp"
+                android:padding="15dp"
+                android:background="@drawable/stroke_textview"
+                android:hint="48984023"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="@color/purple_200"
+                android:textStyle="bold"
+                android:text="Material name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/newname"
+                android:inputType="text"
+                android:layout_marginTop="5dp"
+                android:padding="15dp"
+                android:background="@drawable/stroke_textview"
+                android:hint="Enter Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="@color/purple_200"
+                android:textStyle="bold"
+                android:text="Container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/newcontainer"
+                android:inputType="text"
+                android:layout_marginTop="5dp"
+                android:padding="15dp"
+                android:background="@drawable/stroke_textview"
+                android:hint="C4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="@color/purple_200"
+                android:textStyle="bold"
+                android:text="UoM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/newuom"
+                android:inputType="text"
+                android:layout_marginTop="5dp"
+                android:padding="15dp"
+                android:background="@drawable/stroke_textview"
+                android:hint="Pcs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textColor="@color/purple_200"
+                android:textStyle="bold"
+                android:text="File (JPG | PNG*)"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:padding="15dp"
+                android:background="@drawable/stroke_textview"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/newopengalery"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue"
+                    android:layout_marginRight="12dp"
+                    android:text="Choosee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="01000-image.png"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/newmessage"
+                android:textColor="@color/white"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/message_success"
+                android:padding="20dp"
+                android:text="Data has been successfully!"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/btn_created"
+                android:layout_marginTop="12dp"
+                android:textAlignment="center"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_primary"
+                android:padding="20dp"
+                android:text="Created"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

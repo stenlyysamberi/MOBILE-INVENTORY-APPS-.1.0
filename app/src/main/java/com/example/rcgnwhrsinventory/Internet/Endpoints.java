@@ -34,6 +34,17 @@ public interface Endpoints {
             @Field("email") String email,
             @Field("token") String password);
 
+    @FormUrlEncoded
+    @POST("store")
+    Call<ResponseJson> created(
+            @Field("material_name") String material_name,
+            @Field("material_number") String material_number,
+            @Field("container") String container,
+            @Field("oum") String oum,
+            @Field("file") String file
+
+    );
+
 
     @GET("stock")
     Call<Main> beranda();

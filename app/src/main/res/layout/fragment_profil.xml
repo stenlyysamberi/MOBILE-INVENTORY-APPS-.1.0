@@ -28,7 +28,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -44,85 +44,81 @@
             android:layout_gravity="center"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:text="Pastawa Mamo"
+            android:text="Stenly Samberi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:layout_gravity="center"
             android:textColor="@color/white"
-            android:text="pmamo@fmi.com"
+            android:text="samberi.stenly@gmail.com"
             android:textStyle="normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
-        android:padding="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/rounder_boxed"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="12dp">
 
 
         <TextView
-            android:layout_marginTop="50dp"
-            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:textAlignment="textStart"
-            android:textColor="@color/textColor"
+            android:layout_marginTop="20dp"
             android:text="Employee ID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:layout_marginLeft="10dp"
-            android:text="80029940"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp"
             android:textAlignment="textStart"
             android:textColor="@color/textColor"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="80029940" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
             android:text="Company"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-
-            android:text="Freeport Indonesia"
-            android:layout_marginLeft="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:layout_marginTop="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp"
             android:textAlignment="textStart"
             android:textColor="@color/textColor"
-            android:text="Contract Company"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:textStyle="bold" />
 
         <TextView
-            android:text="Freeport Indonesia"
-            android:layout_marginLeft="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
-        <LinearLayout
-            android:layout_marginTop="40dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Freeport Indonesia" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Contract Company"
+            android:textAlignment="textStart"
+            android:textColor="@color/textColor"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Freeport Indonesia" />
+
+
 
         <Button
-            android:textColor="@color/red"
             android:id="@+id/bnt_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -130,6 +126,7 @@
             android:background="@drawable/btn_logout"
             android:padding="15dp"
             android:text="Log out"
+            android:textColor="@color/red"
             android:textStyle="bold" />
 
 

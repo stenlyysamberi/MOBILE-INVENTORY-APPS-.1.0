@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment {
 
                 @Override
                 public void onFailure(Call<Main> call, Throwable t) {
-                    Toast.makeText(getActivity(), "" + t, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "" + t, Toast.LENGTH_SHORT).show();
                     Log.e("errors", t.toString());
                 }
             });
@@ -127,7 +127,6 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onResponse(Call<Main> call, Response<Main> response) {
                     List<Mmaterial> material = response.body().getMaterial();
-
                     if (response.isSuccessful() && response.body()!=null){
                         materials = v.findViewById(R.id.recy_material);
                         materials.setEnabled(false);
@@ -141,7 +140,7 @@ public class HomeFragment extends Fragment {
 
                 @Override
                 public void onFailure(Call<Main> call, Throwable t) {
-                    Toast.makeText(getActivity(), "" + t, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "" + t, Toast.LENGTH_SHORT).show();
                     Log.e("errors", t.toString());
                 }
             });

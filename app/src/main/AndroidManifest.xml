@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.rcgnwhrsinventory">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -15,24 +17,36 @@
         android:theme="@style/Theme.RCGNWhrsInventory"
         android:usesCleartextTraffic="true">
         <activity
+            android:screenOrientation="portrait"
+            android:name=".FullActivity"
+            android:exported="true" />
+        <activity
+            android:screenOrientation="portrait"
             android:name=".RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="true" />
-        <activity
-            android:name=".DetailActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ProfilActivity"
-            android:exported="true" />
-        <activity
-            android:name=".VerifyActivity"
-            android:exported="true" />
-        <activity
+            android:screenOrientation="portrait"
             android:name=".MainActivity"
             android:exported="true" />
         <activity
+            android:screenOrientation="portrait"
+            android:name=".DetailActivity"
+            android:exported="true" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".ProfilActivity"
+            android:exported="true" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".VerifyActivity"
+            android:exported="true" />
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".LoginActivity"
+            android:exported="true" />
+
+        <activity
+            android:screenOrientation="portrait"
             android:name=".BerandaActivity"
             android:exported="true">
             <intent-filter>

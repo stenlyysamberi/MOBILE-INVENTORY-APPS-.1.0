@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/drawable/btn_logout.xml" value="0.14947916666666666" />
+        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/drawable/message_success.xml" value="0.17291666666666666" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/drawable/outline_cardview.xml" value="0.14947916666666666" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/drawable/rounder_boxed.xml" value="0.14947916666666666" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/drawable/rounder_cardview_item.xml" value="0.14947916666666666" />
@@ -12,6 +13,7 @@
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/drawable/stroke_textview.xml" value="0.14947916666666666" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/activity_beranda.xml" value="0.33" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/activity_detail.xml" value="0.22192513368983957" />
+        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/activity_full.xml" value="0.25" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/activity_profil.xml" value="0.25" />
@@ -20,11 +22,12 @@
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/fragment_profil.xml" value="0.18" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/fragment_saved.xml" value="0.18" />
-        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/fragment_scan.xml" value="0.12447916666666667" />
+        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/fragment_scan.xml" value="0.25" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/item_activity.xml" value="0.22" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/item_employee.xml" value="0.33" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/item_history_message.xml" value="0.33" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/item_material.xml" value="0.33" />
+        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/item_material_full.xml" value="0.22" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/menu/menu_nav.xml" value="0.15" />
       </map>
     </option>
