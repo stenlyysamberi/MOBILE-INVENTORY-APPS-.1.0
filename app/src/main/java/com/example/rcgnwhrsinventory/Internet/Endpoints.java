@@ -46,8 +46,11 @@ public interface Endpoints {
     );
 
 
-    @GET("stock")
+    @GET("beranda/all")
     Call<Main> beranda();
+
+    @GET("stock/all")
+    Call<Main> viewAll();
 
 
 }

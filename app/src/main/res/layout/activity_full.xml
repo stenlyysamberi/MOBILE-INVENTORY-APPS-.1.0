@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:textSize="30dp"
             android:text="Container"
@@ -41,12 +41,20 @@
                 <EditText
                     android:background="@color/transparent"
                     android:lines="1"
-                    android:padding="20dp"
+                    android:padding="15dp"
                     android:hint="Search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
             </LinearLayout>
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimer_full_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include layout="@layout/placeholder_material_all"/>
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
 
         <ScrollView
             android:id="@+id/scrolview"
@@ -65,42 +73,5 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:gravity="center_vertical"
-        android:padding="20dp"
-        android:orientation="horizontal"
-        android:background="@drawable/rounder_menu_nav"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:textColor="@color/purple_200"
-                android:text="Total"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:gravity="right"
-            android:layout_gravity="right"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:gravity="right"
-                android:padding="10dp"
-                android:textColor="@color/white"
-                android:text="TAMBAH"
-                android:background="@drawable/btn_primary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </RelativeLayout>
-
-    </LinearLayout>
 
 </RelativeLayout>

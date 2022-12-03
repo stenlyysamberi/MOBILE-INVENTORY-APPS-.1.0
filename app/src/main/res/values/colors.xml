@@ -12,5 +12,6 @@
     <color name="blue">#1774FF</color>
     <color name="textColor">#000000</color>
     <color name="textDark">#494747</color>
+    <color name="textDark_hit">#3D686868</color>
 
 </resources>

@@ -19,7 +19,7 @@
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/activity_profil.xml" value="0.25" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/activity_verify.xml" value="0.25" />
-        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/fragment_home.xml" value="0.13773035887487875" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/fragment_profil.xml" value="0.18" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/fragment_saved.xml" value="0.18" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/fragment_scan.xml" value="0.25" />
@@ -27,7 +27,11 @@
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/item_employee.xml" value="0.33" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/item_history_message.xml" value="0.33" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/item_material.xml" value="0.33" />
-        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/item_material_full.xml" value="0.22" />
+        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/item_material_full.xml" value="0.5" />
+        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/placeholder_aktivities.xml" value="0.25" />
+        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/placeholder_employee.xml" value="0.22" />
+        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/placeholder_material.xml" value="0.25" />
+        <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/layout/placeholder_material_all.xml" value="0.22" />
         <entry key="..\:/Users/Stenly/Documents/RCGNWhrsInventory/app/src/main/res/menu/menu_nav.xml" value="0.15" />
       </map>
     </option>

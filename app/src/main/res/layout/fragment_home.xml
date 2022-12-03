@@ -83,10 +83,11 @@
                     android:layout_height="150dp">
 
                     <TextView
+                        android:id="@+id/total_stok"
                         android:textStyle="bold"
                         android:textSize="40dp"
                         android:textColor="@color/white"
-                        android:text="10"
+                        android:text=""
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -104,12 +105,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:textSize="20dp"
-                        android:textColor="@color/textDark"
-                        android:text="Activities"
+<!--                    <TextView-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textColor="@color/textDark"-->
+<!--                        android:text="Activities"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"/>-->
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimer_activitis"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content">
+                        <include layout="@layout/placeholder_aktivities"/>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_marginTop="5dp"
@@ -151,6 +159,16 @@
                     android:layout_height="wrap_content"/>
             </LinearLayout>
 
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:orientation="horizontal"
+                        android:id="@+id/shimmer_employee"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <include layout="@layout/placeholder_employee"/>
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_marginTop="12dp"
@@ -180,13 +198,23 @@
                            android:layout_height="wrap_content"/>
 
                        <TextView
-                          android:gravity="right"
+                           android:id="@+id/see_all_material"
+                           android:gravity="right"
                            android:textSize="20dp"
                            android:textColor="@color/blue"
                            android:text="See All"
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"/>
                    </LinearLayout>
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/maerial_item_shimer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <include layout="@layout/placeholder_material"/>
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_marginBottom="40dp"

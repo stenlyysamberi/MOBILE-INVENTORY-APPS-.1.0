@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginRight="2dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:background="@color/textDark_hit"
+                android:id="@+id/activity_name"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textSize="15dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:background="@color/textDark_hit"
+                android:id="@+id/activity_total"
+                android:layout_marginTop="12dp"
+                android:padding="20dp"
+                android:textColor="@color/white"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="right"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:background="@color/textDark_hit"
+                android:id="@+id/activity_image"
+                android:layout_marginRight="20dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

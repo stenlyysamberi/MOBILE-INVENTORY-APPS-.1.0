@@ -42,7 +42,7 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.viewHo
         holder.a.setText(String.valueOf(mmaterials.get(position).getMaterial_name()));
         holder.b.setText(String.valueOf(mmaterials.get(position).getCreated()));
         holder.c.setText(String.valueOf(mmaterials.get(position).getContainer() + " - CONTAINER"));
-        holder.d.setText(String.valueOf(mmaterials.get(position).getTotal() +"/"+ mmaterials.get(position).getUom()));
+        holder.d.setText(String.valueOf(mmaterials.get(position).getTotal() + " - "+ mmaterials.get(position).getUom()));
 
         Picasso.with(context).load("http://192.168.43.110:8000/image/"+mmaterials.get(position).getFile()).into(holder.imageView);
 

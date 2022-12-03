@@ -6,9 +6,22 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Main {
+
     @SerializedName("activity")
     @Expose
     private List<Mactivity> aktivitas = null;
+
+    @SerializedName("total")
+    @Expose
+    private Mtotal total;
+
+    public Mtotal getTotal() {
+        return total;
+    }
+
+    @SerializedName("Viewall")
+    @Expose
+    private List<Mviewall> viewall = null;
 
     @SerializedName("employee")
     @Expose
@@ -17,6 +30,15 @@ public class Main {
     @SerializedName("material")
     @Expose
     private List<Mmaterial> material = null;
+
+
+    public List<Mviewall> getViewall() {
+        return viewall;
+    }
+
+    public void setViewall(List<Mviewall> viewall) {
+        this.viewall = viewall;
+    }
 
     public List<Mactivity> getAktivitas() {
         return aktivitas;
