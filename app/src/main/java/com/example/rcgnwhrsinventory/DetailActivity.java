@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,13 +17,20 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rcgnwhrsinventory.Fragment.HomeFragment;
 import com.example.rcgnwhrsinventory.Internet.APis;
 import com.example.rcgnwhrsinventory.Internet.Endpoints;
+import com.example.rcgnwhrsinventory.Model.Mdetail;
 import com.example.rcgnwhrsinventory.Model.ResponseJson;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.zxing.WriterException;
+
+import org.w3c.dom.Text;
 
 import java.io.ByteArrayOutputStream;
 
@@ -36,9 +44,10 @@ public class DetailActivity extends AppCompatActivity {
 
     TextView nama,container,totals,serial;
     ImageView imageView;
-
     Bitmap bitmap;
     QRGEncoder qrgEncoder;
+
+    String idmaterial;
 
 
     @Override
@@ -48,17 +57,15 @@ public class DetailActivity extends AppCompatActivity {
 
         imageView = findViewById(R.id.detail_barcode);
 
+
+//      nama.setText(String.format(getIntent().getStringExtra("nama")));
         nama = findViewById(R.id.detail_nama);
-        nama.setText(String.format(getIntent().getStringExtra("nama")));
-
         container = findViewById(R.id.detail_container);
-        container.setText(String.format(getIntent().getStringExtra("container")) + " - container");
-
         serial = findViewById(R.id.detail_serial);
-        serial.setText(String.format(getIntent().getStringExtra("serial")));
-
         totals = findViewById(R.id.detail_total);
-        totals.setText(String.valueOf(getIntent().getStringExtra("jumlah")));
+
+        idmaterial = getIntent().getStringExtra("id");
+        getData(idmaterial);
 
         WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
         Display display = manager.getDefaultDisplay();
@@ -84,16 +91,86 @@ public class DetailActivity extends AppCompatActivity {
             Log.e("Tag", e.toString());
         }
 
+
+
+    }
+
+    void getData(String id){
+        try {
+            Endpoints endpoints = APis.getRetrofitInstance().create(Endpoints.class);
+            Call<Mdetail> response = endpoints.details(id);
+            response.enqueue(new Callback<Mdetail>() {
+                @Override
+                public void onResponse(Call<Mdetail> call, Response<Mdetail> response) {
+                    if (response.isSuccessful() && response.body() !=null){
+                        nama.setText(response.body().getMaterialName());
+                        container.setText(response.body().getContainer() + "- Container");
+                        serial.setText(response.body().getMaterialNumber());
+                        totals.setText(String.valueOf(response.body().getTotal()));
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Body" + response.errorBody(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Mdetail> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "" + t, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }catch (Exception e){
+            Log.e("try", String.valueOf(e));
+        }
     }
 
     public void tamba_jumlah(View view) {
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
+                DetailActivity.this,R.style.bottomSheetDialogTheme);
 
+        View bottomSheetView = LayoutInflater.from(getApplicationContext())
+                .inflate(R.layout.sheet_add_stok, (RelativeLayout) findViewById(R.id.sheet_add_material));
+        
+        EditText total = bottomSheetView.findViewById(R.id.total_masuk);
+
+
+        bottomSheetView.findViewById(R.id.saved_total).setOnClickListener(v->{
+            try {
+                String jumlah  = String.valueOf(total.getText());
+                Endpoints endpoints = APis.getRetrofitInstance().create(Endpoints.class);
+                Call<ResponseJson> response = endpoints.added(idmaterial,"1","Keluar Dari RCGN",jumlah,"In");
+                response.enqueue(new Callback<ResponseJson>() {
+                    @Override
+                    public void onResponse(Call<ResponseJson> call, Response<ResponseJson> response) {
+
+                        if (response.isSuccessful() && response.body() !=null){
+                            if (response.body().getStatus().equals(200)){
+                                startActivity(new Intent(DetailActivity.this,LoginActivity.class));
+                                finish();
+                                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+
+
+                            }else{
+                                Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseJson> call, Throwable t) {
+                        Log.e("irror", String.valueOf(t));
+                    }
+                });
+            }catch (Exception e){
+                Log.e("try", String.valueOf(e));
+            }
+        });
+
+        bottomSheetDialog.setContentView(bottomSheetView);
+        bottomSheetDialog.show();
     }
 
     public void hapus_material(View view) {
             TextView serial = findViewById(R.id.detail_serial);
             String numbers = serial.getText().toString();
-
 
             if (numbers.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Serial not found!", Toast.LENGTH_SHORT).show();
@@ -124,4 +201,6 @@ public class DetailActivity extends AppCompatActivity {
             }
 
     }
+
+
 }

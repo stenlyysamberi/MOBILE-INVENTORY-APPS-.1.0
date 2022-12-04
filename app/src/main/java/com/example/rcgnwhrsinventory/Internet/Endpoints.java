@@ -1,6 +1,7 @@
 package com.example.rcgnwhrsinventory.Internet;
 
 import com.example.rcgnwhrsinventory.Model.Main;
+import com.example.rcgnwhrsinventory.Model.Mdetail;
 import com.example.rcgnwhrsinventory.Model.ResponseJson;
 
 import java.util.List;
@@ -44,15 +45,20 @@ public interface Endpoints {
             @Field("material_number") String material_number,
             @Field("container") String container,
             @Field("oum") String oum,
-            @Field("file") String file
-    );
-
+            @Field("file") String file);
 
     @DELETE("stock/del")
     Call<ResponseJson> deleted(
             @Query("material_number") String material_number);
 
-
+    @FormUrlEncoded
+    @POST("stock/add")
+    Call<ResponseJson> added(
+            @Field("id_material") String id_material,
+            @Field("id_employee") String id_employee,
+            @Field("remark") String remark ,
+            @Field("total") String total,
+            @Field("status") String status);
 
     @GET("beranda/all")
     Call<Main> beranda();
@@ -60,5 +66,9 @@ public interface Endpoints {
     @GET("stock/all")
     Call<Main> viewAll();
 
+    @FormUrlEncoded
+    @POST("stock/search/only")
+    Call<Mdetail> details(
+            @Field("id_material") String id_material);
 
 }

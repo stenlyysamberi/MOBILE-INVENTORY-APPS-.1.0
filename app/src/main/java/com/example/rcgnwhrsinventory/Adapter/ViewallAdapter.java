@@ -40,7 +40,7 @@ public class ViewallAdapter extends RecyclerView.Adapter<ViewallAdapter.activiti
     public void onBindViewHolder(@NonNull activitiess holder, int position) {
         holder.text1.setText(String.valueOf(mviewalls.get(position).getMaterial_name()));
         holder.text2.setText(String.valueOf(mviewalls.get(position).getCreated()));
-        holder.text3.setText(String.valueOf(mviewalls.get(position).getTotal()) + " - " + mviewalls.get(position).getUom());
+        holder.text3.setText(String.valueOf(mviewalls.get(position).getContainer() + " - " + "Container"));
         Picasso.with(context).load("http://192.168.43.110:8000/image/"+mviewalls.get(position).getFile()).into(holder.imageView);
     }
 

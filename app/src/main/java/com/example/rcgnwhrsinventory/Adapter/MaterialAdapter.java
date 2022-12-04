@@ -42,7 +42,7 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.viewHo
         holder.a.setText(String.valueOf(mmaterials.get(position).getMaterial_name()));
         holder.b.setText(String.valueOf(mmaterials.get(position).getCreated()));
         holder.c.setText(String.valueOf(mmaterials.get(position).getContainer() + " - CONTAINER"));
-        holder.d.setText(String.valueOf(mmaterials.get(position).getTotal() + " - "+ mmaterials.get(position).getUom()));
+        holder.d.setText(String.valueOf(mmaterials.get(position).getUom()));
 
         Picasso.with(context).load("http://192.168.43.110:8000/image/"+mmaterials.get(position).getFile()).into(holder.imageView);
 
@@ -50,13 +50,8 @@ public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.viewHo
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, DetailActivity.class);
-                i.putExtra("nama", mmaterials.get(position).getMaterial_name());
-                i.putExtra("container",mmaterials.get(position).getContainer());
-                i.putExtra("serial", mmaterials.get(position).getMaterial_number());
-
-                String angkah = String.valueOf(mmaterials.get(position).getTotal());
-                i.putExtra("jumlah", angkah);
-
+                String angkah = String.valueOf(mmaterials.get(position).getId_material());
+                i.putExtra("id", angkah);
                 context.startActivity(i);
             }
         });
