@@ -8,23 +8,31 @@
     tools:context=".DetailActivity">
 
     <LinearLayout
-        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:padding="15dp">
+
         <ImageView
-            android:src="@drawable/arrowback"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrowback" />
 
         <TextView
-            android:textStyle="bold"
-            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:text="Detail materials"
             android:textColor="@color/white"
-            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:onClick="hapus_material"
+            android:gravity="right"
+            android:drawableRight="@drawable/trash"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
 

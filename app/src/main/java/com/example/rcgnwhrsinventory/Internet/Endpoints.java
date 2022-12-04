@@ -7,10 +7,13 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface Endpoints {
     @FormUrlEncoded
@@ -36,14 +39,19 @@ public interface Endpoints {
 
     @FormUrlEncoded
     @POST("store")
-    Call<ResponseJson> created(
+    Call<ResponseJson> store(
             @Field("material_name") String material_name,
             @Field("material_number") String material_number,
             @Field("container") String container,
             @Field("oum") String oum,
             @Field("file") String file
-
     );
+
+
+    @DELETE("stock/del")
+    Call<ResponseJson> deleted(
+            @Query("material_number") String material_number);
+
 
 
     @GET("beranda/all")

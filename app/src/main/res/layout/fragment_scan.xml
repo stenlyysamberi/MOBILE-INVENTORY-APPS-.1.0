@@ -143,22 +143,28 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/img_string"
                     android:text="01000-image.png"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
+                <ImageView
+                    android:id="@+id/img_new"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"/>
+
             </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/newmessage"
-                android:textColor="@color/white"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/message_success"
-                android:padding="20dp"
-                android:text="Data has been successfully!"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+<!--            <TextView-->
+<!--                android:id="@+id/newmessage"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:background="@drawable/message_success"-->
+<!--                android:padding="20dp"-->
+<!--                android:text="Data has been successfully!"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"/>-->
 
             <TextView
                 android:id="@+id/btn_created"

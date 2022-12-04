@@ -6,18 +6,31 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Display;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.rcgnwhrsinventory.Internet.APis;
+import com.example.rcgnwhrsinventory.Internet.Endpoints;
+import com.example.rcgnwhrsinventory.Model.ResponseJson;
 import com.google.zxing.WriterException;
+
+import java.io.ByteArrayOutputStream;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -71,14 +84,44 @@ public class DetailActivity extends AppCompatActivity {
             Log.e("Tag", e.toString());
         }
 
+    }
 
-
+    public void tamba_jumlah(View view) {
 
     }
 
+    public void hapus_material(View view) {
+            TextView serial = findViewById(R.id.detail_serial);
+            String numbers = serial.getText().toString();
 
 
-    public void tamba_jumlah(View view) {
+            if (numbers.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Serial not found!", Toast.LENGTH_SHORT).show();
+            }else{
+                try {
+                    Endpoints endpoint = APis.getRetrofitInstance().create(Endpoints.class);
+                    Call<ResponseJson> x = endpoint.deleted(numbers);
+                    x.enqueue(new Callback<ResponseJson>() {
+                        @Override
+                        public void onResponse(Call<ResponseJson> call, Response<ResponseJson> response) {
+                            if (response.isSuccessful() && response.body() !=null){
+                                if (response.body().getStatus().equals("200")){
+                                    Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                }else{
+                                    Toast.makeText(getApplicationContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseJson> call, Throwable t) {
+                            Toast.makeText(getApplicationContext(), "" + String.valueOf(t), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }catch (Exception e){
+                    Log.e("error",String.valueOf(e));
+                }
+            }
 
     }
 }

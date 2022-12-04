@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,12 +74,16 @@ public class HomeFragment extends Fragment {
         shimmeractivities.setVisibility(View.VISIBLE);
         shimmeractivities.startShimmerAnimation();
         try {
+//            TextView layout = v.findViewById(R.id.message_respone);
+//            layout.setVisibility(View.INVISIBLE);
             Endpoints endpoint = APis.getRetrofitInstance().create(Endpoints.class);
             Call<Main> info = endpoint.beranda();
             info.enqueue(new Callback<Main>() {
                 @Override
                 public void onResponse(Call<Main> call, Response<Main> response) {
                     List<Mactivity> info = response.body().getAktivitas();
+
+//                    Log.e("data", String.valueOf(info.get(0).getUom()));
 
                     if (response.isSuccessful() && response.body()!=null){
                         shimmeractivities.stopShimmerAnimation();
@@ -89,8 +94,10 @@ public class HomeFragment extends Fragment {
                         activity.setAdapter(activityadapter);
                         activity.setLayoutManager(new LinearLayoutManager(getActivity(),RecyclerView.HORIZONTAL, false));
                     }else{
-                       Log.e("error", response.errorBody().toString());
+                        Log.e("error", response.errorBody().toString());
                     }
+
+
                 }
 
                 @Override

@@ -119,6 +119,8 @@
                         <include layout="@layout/placeholder_aktivities"/>
                     </com.facebook.shimmer.ShimmerFrameLayout>
 
+<!--                    <include layout="@layout/empty_message"/>-->
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_marginTop="5dp"
                         android:orientation="horizontal"

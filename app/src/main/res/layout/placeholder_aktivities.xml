@@ -4,13 +4,12 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_marginRight="2dp"
+        android:layout_margin="5dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:padding="20dp"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
@@ -43,7 +42,6 @@
             <ImageView
                 android:background="@color/textDark_hit"
                 android:id="@+id/activity_image"
-                android:layout_marginRight="20dp"
                 android:layout_width="100dp"
                 android:layout_height="100dp"/>
         </LinearLayout>

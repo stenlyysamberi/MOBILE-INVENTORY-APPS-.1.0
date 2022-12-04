@@ -4,11 +4,15 @@ import static android.app.Activity.RESULT_OK;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -20,12 +24,14 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +47,9 @@ import com.google.zxing.integration.android.IntentResult;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -49,7 +58,13 @@ public class ScanFragment extends Fragment{
     MainActivity mainActivity;
     View v;
     TextView btn_created,open_glerry;
-    private static int LOAD_IMAGE_RESULT=1;
+    Context mcontext;
+
+
+    private final int GALLERY = 1;
+    ImageView imageView;
+    Bitmap bitmap;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,20 +85,27 @@ public class ScanFragment extends Fragment{
 
         open_glerry = v.findViewById(R.id.newopengalery);
         open_glerry.setOnClickListener(v->{
-            open_file();
+            galery();
         });
+
+        imageView = v.findViewById(R.id.img_new);
 
         return v;
     }
 
-    private void open_file() {
-        Intent i=new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(i, LOAD_IMAGE_RESULT);
-    }
+
+
+
+   public void galery(){
+       Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+       intent.setType("image/*");
+       startActivityForResult(Intent.createChooser(intent, "Select Image"), GALLERY);
+   }
 
 
 
     private void created() {
+
         TextView number = v.findViewById(R.id.newbarcode);
         EditText nama = v.findViewById(R.id.newname);
         EditText container = v.findViewById(R.id.newcontainer);
@@ -94,25 +116,24 @@ public class ScanFragment extends Fragment{
         String containers = container.getText().toString();
         String uoms = uom.getText().toString();
 
+
         if (numbers.isEmpty() || namas.isEmpty() || containers.isEmpty() || uoms.isEmpty()) {
             Toast.makeText(getActivity(), "" + "Data Belum Lengkap!", Toast.LENGTH_SHORT).show();
         }else{
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+            String string = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
             try {
                 Endpoints endpoint = APis.getRetrofitInstance().create(Endpoints.class);
-                Call<ResponseJson> x = endpoint.created(numbers,namas,containers,uoms,"1669876182600-spatu.PNG");
+                Call<ResponseJson> x = endpoint.store(namas,numbers,containers,uoms,string);
                 x.enqueue(new Callback<ResponseJson>() {
                     @Override
                     public void onResponse(Call<ResponseJson> call, Response<ResponseJson> response) {
                         if (response.isSuccessful() && response.body() !=null){
                             if (response.body().getStatus().equals("200")){
-                                TextView message = v.findViewById(R.id.newmessage);
-                                message.setVisibility(View.VISIBLE);
-                                message.setText(response.body().getMessage());
-                                //Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
+                                Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
                             }else{
-                                TextView message = v.findViewById(R.id.newmessage);
-                                message.setVisibility(View.VISIBLE);
-                                message.setText(response.body().getMessage());
+                                Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
                             }
                         }
                     }
@@ -144,8 +165,21 @@ public class ScanFragment extends Fragment{
         }
 
         //Source code untuk Open Gallery
+        if (requestCode == GALLERY) {
+            if (data != null) {
+                Uri uri = data.getData();
+                try {
+                    bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
+                    imageView.setImageBitmap(bitmap);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), "Failed to select image!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        //End Open Gallery
+
+        }
 
     }
-
-
 }
