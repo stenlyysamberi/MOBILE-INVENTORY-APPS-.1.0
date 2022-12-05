@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class HomeFragment extends Fragment {
     private Activityadapter activityadapter;
     private Employeeadapter employeeadapter;
     private MaterialAdapter materialadapter;
+    ImageView search_icon;
     ShimmerFrameLayout shimmeractivities,shimmerEmployee,shimer_material;
 
     @Override
@@ -56,6 +58,12 @@ public class HomeFragment extends Fragment {
 
         TextView sell_material = v.findViewById(R.id.see_all_material);
         sell_material.setOnClickListener(v->{
+            Intent intent = new Intent(getActivity(), FullActivity.class);
+            startActivity(intent);
+        });
+
+        search_icon = v.findViewById(R.id.search_produk);
+        search_icon.setOnClickListener(v->{
             Intent intent = new Intent(getActivity(), FullActivity.class);
             startActivity(intent);
         });

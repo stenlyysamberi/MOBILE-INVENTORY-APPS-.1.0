@@ -63,8 +63,15 @@ public interface Endpoints {
     @GET("beranda/all")
     Call<Main> beranda();
 
-    @GET("stock/all")
-    Call<Main> viewAll();
+    @FormUrlEncoded
+    @POST("stock/all")
+    Call<Main> viewAll(
+            @Field("keyword") String keyword);
+
+    @FormUrlEncoded
+    @POST("history")
+    Call<Main> history(
+            @Field("id_employee") String id_employee);
 
     @FormUrlEncoded
     @POST("stock/search/only")

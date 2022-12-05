@@ -7,6 +7,14 @@ import java.util.List;
 
 public class Main {
 
+    @SerializedName("summery")
+    @Expose
+    private List<Mhistory> history = null;
+
+    public List<Mhistory> getHistory() {
+        return history;
+    }
+
     @SerializedName("activity")
     @Expose
     private List<Mactivity> aktivitas = null;

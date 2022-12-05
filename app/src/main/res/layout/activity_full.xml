@@ -39,6 +39,8 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:inputType="text"
+                    android:id="@+id/text_key_input"
                     android:background="@color/transparent"
                     android:lines="1"
                     android:padding="15dp"

@@ -13,5 +13,6 @@
     <color name="textColor">#000000</color>
     <color name="textDark">#494747</color>
     <color name="textDark_hit">#3D686868</color>
+    <color name="green">#04830D</color>
 
 </resources>

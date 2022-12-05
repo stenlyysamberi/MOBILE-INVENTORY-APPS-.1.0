@@ -6,7 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.rcgnwhrsinventory.Adapter.Activityadapter;
 import com.example.rcgnwhrsinventory.Adapter.ViewallAdapter;
@@ -28,20 +32,39 @@ public class FullActivity extends AppCompatActivity {
     ShimmerFrameLayout shimmerFrameLayout;
     RecyclerView recyclerView;
     ViewallAdapter viewallAdapter;
+    String kata;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full);
 
+        TextView key = findViewById(R.id.text_key_input);
 
+        key.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && i == KeyEvent.KEYCODE_ENTER){
+                    kata = key.getText().toString();
+                    getData(kata);
+                }
+                return false;
+            }
+        });
+
+        getData(kata);
+
+
+    }
+
+    private void getData(String keyword) {
         try {
             shimmerFrameLayout = findViewById(R.id.shimer_full_item);
             shimmerFrameLayout.setVisibility(View.VISIBLE);
             shimmerFrameLayout.startShimmerAnimation();
 
             Endpoints endpoint = APis.getRetrofitInstance().create(Endpoints.class);
-            Call<Main> info = endpoint.viewAll();
+            Call<Main> info = endpoint.viewAll(keyword);
             info.enqueue(new Callback<Main>() {
                 @Override
                 public void onResponse(Call<Main> call, Response<Main> response) {
@@ -70,4 +93,6 @@ public class FullActivity extends AppCompatActivity {
             Log.e("tryError", String.valueOf(e));
         }
     }
+
+
 }

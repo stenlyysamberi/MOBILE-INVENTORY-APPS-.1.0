@@ -53,14 +53,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
+
                 <ImageView
                     android:layout_marginRight="12dp"
                     android:src="@drawable/icon_notif"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-
                <ImageView
+                   android:id="@+id/search_produk"
                    android:src="@drawable/icon_search"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"/>
@@ -70,8 +72,6 @@
             </LinearLayout>
 
         </LinearLayout>
-
-
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -105,12 +105,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-<!--                    <TextView-->
-<!--                        android:textSize="20dp"-->
-<!--                        android:textColor="@color/textDark"-->
-<!--                        android:text="Activities"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"/>-->
+                    <TextView
+                        android:textSize="18dp"
+                        android:textColor="@color/textDark"
+                        android:text="Daily Job's"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
                     <com.facebook.shimmer.ShimmerFrameLayout
                         android:id="@+id/shimer_activitis"
@@ -144,7 +144,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:textColor="@color/textDark"
                     android:text="Employee"
                     android:layout_width="wrap_content"
@@ -155,7 +155,7 @@
                 <TextView
                     android:text="See All"
                     android:gravity="right"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:textColor="@color/blue"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
@@ -193,16 +193,16 @@
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content">
                        <TextView
-                           android:textSize="20dp"
+                           android:textSize="18dp"
                            android:textColor="@color/textDark"
-                           android:text="Material"
+                           android:text="Latest updated"
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"/>
 
                        <TextView
                            android:id="@+id/see_all_material"
                            android:gravity="right"
-                           android:textSize="20dp"
+                           android:textSize="18dp"
                            android:textColor="@color/blue"
                            android:text="See All"
                            android:layout_width="match_parent"
